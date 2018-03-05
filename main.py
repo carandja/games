@@ -6,7 +6,7 @@ from room import *
 
 r = Room()
 print r
-print r.description()
+print r.locationType()
 
 from action import *
 a = Action()

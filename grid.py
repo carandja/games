@@ -1,5 +1,7 @@
 """The grid in which the game happens"""
 
+from room import Room
+
 class Grid:
 	"""Represents the 2D grid"""
 	
@@ -14,9 +16,34 @@ class Grid:
 		self.height = height
 		self.x = 0
 		self.y = 0
+		
+		self.row = []
+		
+		for r in range(self.height):
+		
+			col = []
+			
+			for c in range(self.width):
+			
+					col.append(Room())
+					
+			self.row.append(col)
 
 	def dump(self):
-		return "width: %s, height: %s, x: %s, y: %s" % (self.width, self.height, self.x, self.y)
+		return "width: %s, height: %s, x: %s, y: %s\n grid: \n%s" % (self.width, self.height, self.x, self.y, self.dumpGrid())
+		
+	def dumpGrid(self):
+		"""Visual representation of a grid"""
+		result = ""
+		for r in range(self.height):
+			
+			for c in range(self.width):
+
+					result += " %s" % self.row[r][c].locationType()
+					
+			result += '\n'
+		
+		return result
 		
 	def up(self):
 		"""Move up the grid"""
