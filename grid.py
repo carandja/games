@@ -17,17 +17,17 @@ class Grid:
 		self.x = 0
 		self.y = 0
 		
-		self.row = []
+		self.col = []
 		
-		for r in range(self.height):
+		for c in range(self.width):
 		
-			col = []
+			row = []
 			
-			for c in range(self.width):
+			for r in range(self.height):
 			
-					col.append(Room())
+					row.append(Room())
 					
-			self.row.append(col)
+			self.col.append(row)
 
 	def dump(self):
 		return "width: %s, height: %s, x: %s, y: %s\n grid: \n%s" % (self.width, self.height, self.x, self.y, self.dumpGrid())
@@ -39,7 +39,7 @@ class Grid:
 			
 			for c in range(self.width):
 
-					result += " %s" % self.row[r][c].locationType()
+					result += " %s" % self.col[c][r].locationType()
 					
 			result += '\n'
 		
