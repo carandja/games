@@ -1,6 +1,6 @@
 """The grid in which the game happens"""
 
-from room import Room
+from room import Wall
 
 class Grid:
 	"""Represents the 2D grid"""
@@ -25,7 +25,7 @@ class Grid:
 			
 			for r in range(self.height):
 			
-					row.append(Room())
+					row.append(Wall())
 					
 			self.col.append(row)
 

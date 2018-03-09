@@ -7,20 +7,18 @@ class Location(object):
 	
 	def __init__(self):
 		"""Constructor"""
-		print "New Location"
 
 	def locationType():
 		"""Return the type of location as a 4-char string"""
 		return "LOCA"
 	
 class Wall(Location):
-	"""The Room class"""
+	"""The Wall class"""
 
 	def __init__(self):
 		"""Constructor"""
 		super(Wall, self).__init__()
-		print "New Room"
-
+		
 	def locationType(self):
 		"""Return the type of location as a 4-char string"""
 		return "WALL"
@@ -31,7 +29,6 @@ class Room(Location):
 	def __init__(self):
 		"""Constructor"""
 		super(Room, self).__init__()
-		print "New Room"
 
 	def locationType(self):
 		"""Return the type of location as a 4-char string"""
