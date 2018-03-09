@@ -26,7 +26,7 @@ class GridBuilder:
 		}
 		while length < target:
 			dir = randint(1, 4)
-			if direction[dir]():
+			if direction[dir]() and grid.col[grid.x][grid.y].locationType() == "WALL":
 				length += 1
 				grid.col[grid.x][grid.y] = Room()
 				

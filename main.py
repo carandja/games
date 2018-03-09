@@ -15,10 +15,9 @@ print a
 from grid import *
 g = Grid(5, 7)
 print g.dump()
-g.down()
-g.down()
-g.down()
-print g.dump()
-g.up()
-g.up()
+
+from grid_builder import *
+gb = GridBuilder()
+gb.build(g)
+
 print g.dump()

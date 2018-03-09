@@ -56,7 +56,23 @@ class Grid:
 	def down(self):
 		"""Move up the grid"""
 		result = False
-		if self.y < self.width:
+		if self.y < self.height - 1:
 			self.y += 1
+			result = True
+		return result
+
+	def left(self):
+		"""Move left on the grid"""
+		result = False
+		if self.x > 0:
+			self.x -= 1
+			result = True
+		return result
+
+	def right(self):
+		"""Move right on the grid"""
+		result = False
+		if self.x < self.width - 1:
+			self.x += 1
 			result = True
 		return result
