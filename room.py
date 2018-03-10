@@ -23,6 +23,28 @@ class Wall(Location):
 		"""Return the type of location as a 4-char string"""
 		return "WALL"
 	
+class Entrance(Location):
+	"""The Entrance class"""
+
+	def __init__(self):
+		"""Constructor"""
+		super(Entrance, self).__init__()
+		
+	def locationType(self):
+		"""Return the type of location as a 4-char string"""
+		return "ENTR"
+	
+class Exit(Location):
+	"""The Entrance class"""
+
+	def __init__(self):
+		"""Constructor"""
+		super(Exit, self).__init__()
+		
+	def locationType(self):
+		"""Return the type of location as a 4-char string"""
+		return "EXIT"
+	
 class Room(Location):
 	"""The Room class"""
 
