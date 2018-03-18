@@ -15,6 +15,10 @@ class GridBuilder:
 		grid.y = randint(0, grid.height - 1)
 		grid.col[grid.x][grid.y] = Entrance()
 		
+		# save coordinates of entrance for later
+		runx = grid.x
+		runy = grid.y
+		
 		target = max(grid.width, grid.height)
 		length = 1
 		
@@ -32,4 +36,5 @@ class GridBuilder:
 				
 		grid.col[grid.x][grid.y] = Exit()
 		
-		
+		grid.x = runx
+		grid.y = runy

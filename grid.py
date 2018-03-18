@@ -1,6 +1,7 @@
 """The grid in which the game happens"""
 
 from room import Wall
+from action import *
 
 class Grid:
 	"""Represents the 2D grid"""
@@ -38,13 +39,32 @@ class Grid:
 		for r in range(self.height):
 			
 			for c in range(self.width):
-
-					result += " %s" % self.col[c][r].locationType()
+					
+					text = self.col[c][r].locationType()
+					if c == self.x and r == self.y:
+						text = text.lower()
+					result += " %s" % text
 					
 			result += '\n'
 		
 		return result
-		
+
+	def canUp(self):
+		"""Can we go up the grid"""
+		return self.y > 0 and self.col[self.x][self.y - 1].locationType() != "WALL"
+
+	def canDown(self):
+		"""Can we go down the grid"""
+		return self.y < self.height - 1 and self.col[self.x][self.y + 1].locationType() != "WALL"
+
+	def canLeft(self):
+		"""Can we go left on the grid"""
+		return self.x > 0 and self.col[self.x - 1][self.y].locationType() != "WALL"
+
+	def canRight(self):
+		"""Can we go right on the grid"""
+		return self.x < self.width - 1 and self.col[self.x + 1][self.y].locationType() != "WALL"
+
 	def up(self):
 		"""Move up the grid"""
 		result = False
@@ -76,3 +96,22 @@ class Grid:
 			self.x += 1
 			result = True
 		return result
+
+	def getActions(self):
+		"""Provide actions at current location"""
+		location = self.col[self.x][self.y]
+		actions = location.getActions()
+		
+		if self.canUp():
+			actions.append(Action("N", "Head North", self.up))
+
+		if self.canRight():
+			actions.append(Action("E", "Head East", self.right))			
+
+		if self.canDown():
+			actions.append(Action("S", "Head South", self.down))
+
+		if self.canLeft():
+			actions.append(Action("W", "Head West", self.left))
+
+		return actions

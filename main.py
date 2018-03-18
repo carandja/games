@@ -1,22 +1,36 @@
 """
-Main entry point for the system
+Entry point for the application
 """
 
-from room import *
-
-r = Room()
-print r
-
-from action import *
-a = Action()
-print a
-
 from grid import *
-g = Grid(5, 7)
-print g.dump()
-
 from grid_builder import *
-gb = GridBuilder()
-gb.build(g)
+from action import *
 
-print g.dump()
+def leave():
+	global goon
+	goon = False
+	
+def nextAction(grid):
+	print grid.dump()
+	actionList = grid.getActions()
+	actionList.append(leaveAction)
+	for action in actionList:
+		print action.getDescription()
+	option = raw_input("? ").upper()
+	for action in actionList:
+		if action.getOption() == option:
+			#print "matched"
+			action.run()
+		else:
+			#print "not matched [%s] [%s]" % (action.getOption(), option)
+			pass
+
+grid = Grid(5, 7)
+GridBuilder().build(grid)
+
+goon = True
+
+leaveAction = Action("X", "Exit the dungeon", leave)
+
+while goon:
+	nextAction(grid)
