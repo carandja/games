@@ -12,6 +12,7 @@ def leave():
 	
 def nextAction(grid):
 	print grid.dump()
+	print grid.getDescription()
 	actionList = grid.getActions()
 	actionList.append(leaveAction)
 	for action in actionList:
@@ -25,12 +26,14 @@ def nextAction(grid):
 			#print "not matched [%s] [%s]" % (action.getOption(), option)
 			pass
 
+print "Welcome"
 grid = Grid(5, 7)
-GridBuilder().build(grid)
-
 goon = True
 
-leaveAction = Action("X", "Exit the dungeon", leave)
+leaveAction = Action("Q", "Quit the game", leave)
+exitAction =	Action("X", "Escape from the dungeon", leave)
+GridBuilder().build(grid, exitAction)
+
 
 while goon:
 	nextAction(grid)

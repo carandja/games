@@ -9,8 +9,10 @@ class GridBuilder:
 	def __init__(self):
 		"""Constructor"""
 		
-	def build(self, grid):
+	def build(self, grid, exitAction):
 		"""Build a grid"""
+		print "yyyy"
+		print exitAction.getDescription()
 		grid.x = randint(0, grid.width - 1)
 		grid.y = randint(0, grid.height - 1)
 		grid.col[grid.x][grid.y] = Entrance()
@@ -34,7 +36,7 @@ class GridBuilder:
 				length += 1
 				grid.col[grid.x][grid.y] = Room()
 				
-		grid.col[grid.x][grid.y] = Exit()
+		grid.col[grid.x][grid.y] = Exit(exitAction)
 		
 		grid.x = runx
 		grid.y = runy

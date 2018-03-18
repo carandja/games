@@ -18,6 +18,9 @@ class Location(object):
 	def getActions(self):
 		"""Return a list of user Actions"""
 		return []
+		
+	def getDescription(self):
+		return "You are - somewhere..."
 	
 class Wall(Location):
 	"""The Wall class"""
@@ -44,13 +47,24 @@ class Entrance(Location):
 class Exit(Location):
 	"""The Entrance class"""
 
-	def __init__(self):
+	def __init__(self, exitAction):
 		"""Constructor"""
 		super(Exit, self).__init__()
-		
+		self.action = exitAction
+		print "xxx"
+		print exitAction.getDescription()
 	def locationType(self):
 		"""Return the type of location as a 4-char string"""
 		return "EXIT"
+		
+	def getDescription(self):
+		return "There's light you can see the way out!'"
+
+
+	def getActions(self):
+		"""Return a list of user Actions"""
+		return [self.action]
+
 	
 class Room(Location):
 	"""The Room class"""
@@ -71,4 +85,8 @@ class Room(Location):
 	def locationType(self):
 		"""Return the type of location as a 4-char string"""
 		return "ROOM"
+		
+	def getDescription(self):
+		return "You are in a room."
+
 

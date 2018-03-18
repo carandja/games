@@ -115,3 +115,6 @@ class Grid:
 			actions.append(Action("W", "Head West", self.left))
 
 		return actions
+
+	def getDescription(self):
+		return self.col[self.x][self.y].getDescription()
