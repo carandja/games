@@ -69,12 +69,12 @@ class Exit(Location):
 class Room(Location):
 	"""The Room class"""
 	
-	treasure=0;
-	monsters=[]
-
 	def __init__(self):
 		"""Constructor"""
 		super(Room, self).__init__()
+
+		self.wall_colour = choice(['Red', 'Green', 'Blue', 'Purple', 'Yellow', 'Orange', 'Black', 'White', 'Grey'])
+		self.wall_material = choice(['Wooden', 'Stone', 'Brick', 'Plaster', 'Iron', 'Marble'])
 		self.treasure = randint(0,100)
 		for m in range(3):
 			# randomly allocate a monsters
@@ -87,6 +87,6 @@ class Room(Location):
 		return "ROOM"
 		
 	def getDescription(self):
-		return "You are in a room."
+		return "You are in a room with %s %s walls." % (self.wall_colour.lower(), self.wall_material.lower())
 
 
