@@ -51,7 +51,7 @@ class Exit(Location):
 		"""Constructor"""
 		super(Exit, self).__init__()
 		self.action = exitAction
-		print "xxx"
+
 		print exitAction.getDescription()
 	def locationType(self):
 		"""Return the type of location as a 4-char string"""
