@@ -73,7 +73,7 @@ class Room(Location):
 		"""Constructor"""
 		super(Room, self).__init__()
 
-		self.wall_colour = choice(['Red', 'Green', 'Blue', 'Purple', 'Yellow', 'Orange', 'Black', 'White', 'Grey'])
+		self.wall_colour = choice(['Red', 'Green', 'Blue', 'Purple', 'Yellow', 'Orange', 'Black', 'White', 'Grey', 'Indigo'])
 		self.wall_material = choice(['Wooden', 'Stone', 'Brick', 'Plaster', 'Iron', 'Marble'])
 		self.treasure = randint(0,100)
 		for m in range(3):
