@@ -11,12 +11,13 @@ class Monster(object):
 	
 	def __init__(self):
 		"""Constructor will provide random health 5-10"""
-		self.health = randint(5,10)
+		self.health = randint(5, 10)
 		
-	def attack(self, points):
+	def attack(self):
 		""" recieve an attack """
+		points = randint(0, 3)
 		self.health -= points
-		return isAlive()
+		return points
 		
 	def isAlive(self):
 		"""The monster is alive if it has any health left"""

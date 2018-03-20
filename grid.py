@@ -3,7 +3,20 @@
 from room import Wall
 from action import *
 
-class Grid:
+class Context(object):
+	def __init__(self):
+		self.message = ""
+	def fight(self):
+		pass
+	def setMessage(self, message):
+		self.message = message
+	def getMessage(self):
+		result = self.message
+		self.message = ""
+		return result
+	
+		
+class Grid(Context):
 	"""Represents the 2D grid"""
 	
 	def __init__(self, width, height):
@@ -13,6 +26,7 @@ class Grid:
 		width: the width if the grid
 		height: the height of the grid
 		"""
+		super(Grid, self).__init__()
 		self.width = width
 		self.height = height
 		self.x = 0
@@ -118,3 +132,7 @@ class Grid:
 
 	def getDescription(self):
 		return self.col[self.x][self.y].getDescription()
+		
+	def fight(self):
+		"""Fight a monster in the room"""
+		self.col[self.x][self.y].fight()

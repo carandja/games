@@ -11,13 +11,17 @@ def leave():
 	goon = False
 	
 def nextAction(grid):
-	print grid.dump()
 	print grid.getDescription()
+	print ""
+	print grid.dumpGrid()
+	print grid.getMessage()
+	print ""
 	actionList = grid.getActions()
 	actionList.append(leaveAction)
 	for action in actionList:
 		print action.getDescription()
 	option = raw_input("? ").upper()
+	print "\n" * 50
 	for action in actionList:
 		if action.getOption() == option:
 			#print "matched"
@@ -26,7 +30,7 @@ def nextAction(grid):
 			#print "not matched [%s] [%s]" % (action.getOption(), option)
 			pass
 
-print "Welcome"
+
 grid = Grid(5, 7)
 goon = True
 

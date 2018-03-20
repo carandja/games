@@ -11,8 +11,7 @@ class GridBuilder:
 		
 	def build(self, grid, exitAction):
 		"""Build a grid"""
-		print "yyyy"
-		print exitAction.getDescription()
+		
 		grid.x = randint(0, grid.width - 1)
 		grid.y = randint(0, grid.height - 1)
 		grid.col[grid.x][grid.y] = Entrance()
@@ -34,7 +33,7 @@ class GridBuilder:
 			dir = randint(1, 4)
 			if direction[dir]() and grid.col[grid.x][grid.y].locationType() == "WALL":
 				length += 1
-				grid.col[grid.x][grid.y] = Room()
+				grid.col[grid.x][grid.y] = Room(grid)
 				
 		grid.col[grid.x][grid.y] = Exit(exitAction)
 		
