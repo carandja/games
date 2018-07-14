@@ -1,0 +1,13 @@
++--->[House]
+     Up
+     +--->[Hall]
+          Left
+          +--->[Library]
+               Right
+               +--->[Kitchen]
+     Down
+     +--->[Cellar]
+          Curving right
+          +--->[Dungeon]
+     Forward
+     +--->[Study]
