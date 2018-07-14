@@ -1,5 +1,6 @@
 """
 Entry point for the application
+Interactive session
 """
 
 from grid import *
