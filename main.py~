@@ -1,6 +1,7 @@
 """
 Entry point for the application
 Interactive session
+Revsion 0714.2
 """
 
 from grid import *
