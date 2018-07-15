@@ -22,7 +22,7 @@ def main(winmain):
     refresh_win()
     refresh_win()
     key = win.getch()
-    while key != ord('x'):
+    while key != 'x':
         pady += 1
         key = refresh_win()
 
