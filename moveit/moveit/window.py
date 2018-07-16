@@ -1,3 +1,4 @@
+import time
 import curses
 import random
 
@@ -11,6 +12,10 @@ def main(winmain):
     winmain.border()
     win = curses.newpad(padh, padw)
 
+    def refresh_nowait():
+        """refresh the window"""
+        win.refresh(pady, padx, 1, 1, curses.LINES - 2, curses.COLS - 2)
+
     def refresh_win():
         """refresh the window"""
         win.refresh(pady, padx, 1, 1, curses.LINES - 2, curses.COLS - 2)
@@ -20,7 +25,10 @@ def main(winmain):
         s = ''.join([random.choice('.      +-') for c in range(padw-1)])
         win.addstr(l, 0, s)
     refresh_win()
-    refresh_win()
+    for j in range(15):
+        pady += 1
+        refresh_nowait()
+        time.sleep(0.1)
     key = win.getch()
     while key != ord('x'):
         pady += 1
