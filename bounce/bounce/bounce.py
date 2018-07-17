@@ -42,8 +42,8 @@ class Ball(threading.Thread):
 
 def main(winmain):
     """main function"""
-    height = 12 
-    width = 30
+    height = 17 
+    width = 49
     baty = height / 2
     batx = width / 2
     curses.curs_set(False)
@@ -55,6 +55,7 @@ def main(winmain):
     key = 0;
     while key != 27:
         key = win.getch()
+        time.sleep(0.1)
     ball.quit()
     ball.join()
 
