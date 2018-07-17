@@ -1,5 +1,5 @@
 """
-Interactive bouncing ball
+Interactive bouncing ball in room
 Revsion from Yoga
 """
 import curses
