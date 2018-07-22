@@ -45,13 +45,15 @@ def main(winmain):
     width = 49
     baty = height / 2
     batx = width / 2
+    batc = '\u20de'
     curses.curs_set(False)
     win = curses.newwin(height, width)
     win.nodelay
     win.bkgd('-')
     ball = Ball(win)
     ball.start()
-    key = 0;
+    key = 0
+    addch(baty, batx, batc)
     while key != 27:
         key = win.getch()
         time.sleep(0.1)
